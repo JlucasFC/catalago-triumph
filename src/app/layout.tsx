@@ -10,10 +10,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased`}
+        className={`antialiased flex flex-col min-h-screen"`}
       >
         <Header/>
-        <main>
+        <main className="mx-10 md:mx-16 overflow-hidden">
         {children}
         </main>
       </body>
