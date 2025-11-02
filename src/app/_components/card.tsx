@@ -5,13 +5,21 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export const Card = (props) => {
+interface CardProps {
+  img_moto: string;
+  model: string;
+  codigo: string;
+  credito: string;
+  parcela: string;
+}
+
+export const Card: React.FC<CardProps> = ({ img_moto, model, codigo, credito, parcela }) => {
   const [showModal, setModal] = useState(false);
 
   return (
     <div className="shadow shadow-foreground/50 relative flex flex-col bg-primary w-96 h-auto p-3 border-accent justify-center items-center gap-2 rounded-2xl">
-      <img src={props.img_moto} alt={props.model} className="bg-white w-full h-52" />
-      <h2 className="font-bold text-2xl">{props.model}</h2>
+      <img src={img_moto} alt={model} className="bg-white w-full h-52" />
+      <h2 className="font-bold text-2xl">{model}</h2>
       <button
         onClick={() => setModal(true)}
         className="bg-secondary text-primary w-4/5 rounded-3xl h-8"
@@ -19,7 +27,7 @@ export const Card = (props) => {
         Planos de consorcio
       </button>
       <Link
-        href={`https://wa.me/5592994956878?text=Olá!%20Fiquei%20interessado%20na%20${props.model}%20e%20gostaria%20de%20saber%20mais`}
+        href={`https://wa.me/5592994956878?text=Olá!%20Fiquei%20interessado%20na%20${model}%20e%20gostaria%20de%20saber%20mais`}
         target="_blank"
         className="bg-secondary text-primary w-4/5 rounded-3xl h-8 flex items-center justify-center"
       >
@@ -44,13 +52,13 @@ export const Card = (props) => {
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 p-2">{props.model}</td>
-                  <td className="border border-gray-300 p-2">{props.codigo}</td>
+                  <td className="border border-gray-300 p-2">{model}</td>
+                  <td className="border border-gray-300 p-2">{codigo}</td>
                   <td className="border border-gray-300 p-2">
-                    {props.credito}
+                    {credito}
                   </td>
                   <td className="border border-gray-300 p-2">
-                    {props.parcela}
+                    {parcela}
                   </td>
                 </tr>
               </tbody>
